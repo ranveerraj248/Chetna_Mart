@@ -2,6 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tvSignUpWellcome"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SignUpFragment">
@@ -12,84 +13,77 @@
 
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btnSignUp"
             android:layout_width="122dp"
             android:layout_height="52dp"
             android:layout_marginTop="36dp"
             android:background="@drawable/btn_theme"
             android:fontFamily="@font/alike"
-
             android:text="@string/tvSignUp"
             android:textColor="@color/royalBlue"
             android:textSize="24sp"
-            app:layout_constraintEnd_toEndOf="@+id/editTextTextPassword2"
-            app:layout_constraintStart_toStartOf="@+id/editTextTextPassword2"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword2" />
+            app:layout_constraintEnd_toEndOf="@+id/etSignUpConfirmPassword"
+            app:layout_constraintStart_toStartOf="@+id/etSignUpConfirmPassword"
+            app:layout_constraintTop_toBottomOf="@+id/etSignUpConfirmPassword" />
 
         <EditText
-            android:id="@+id/editTextTextEmailAddress"
+            android:id="@+id/etSignUpEmail"
             android:layout_width="312dp"
             android:layout_height="45dp"
             android:layout_marginTop="24dp"
             android:autofillHints=""
             android:background="@drawable/input_field"
             android:ems="10"
-
             android:hint="@string/hintEmail"
-
             android:inputType="textEmailAddress"
             android:textColor="@color/royalBlue"
             android:textSize="24sp"
-            app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName"
+            app:layout_constraintEnd_toEndOf="@+id/etSignUpName"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+            app:layout_constraintStart_toStartOf="@+id/etSignUpName"
+            app:layout_constraintTop_toBottomOf="@+id/etSignUpName" />
 
         <EditText
-            android:id="@+id/editTextTextPassword"
+            android:id="@+id/etSignUpPassword"
             android:layout_width="312dp"
             android:layout_height="45dp"
             android:layout_marginTop="24dp"
             android:autofillHints=""
             android:background="@drawable/input_field"
             android:ems="10"
-
             android:hint="@string/hintPassword"
-
             android:inputType="textPassword"
-            app:layout_constraintEnd_toEndOf="@+id/editTextTextEmailAddress"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="@+id/etSignUpEmail"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/editTextTextEmailAddress"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
+            app:layout_constraintStart_toStartOf="@+id/etSignUpEmail"
+            app:layout_constraintTop_toBottomOf="@+id/etSignUpEmail" />
 
         <EditText
-            android:id="@+id/editTextTextPassword2"
+            android:id="@+id/etSignUpConfirmPassword"
             android:layout_width="312dp"
             android:layout_height="45dp"
             android:layout_marginTop="24dp"
             android:autofillHints=""
             android:background="@drawable/input_field"
             android:ems="10"
-
             android:hint="@string/hintConfirmPassword"
-
             android:inputType="textPassword"
-            app:layout_constraintEnd_toEndOf="@+id/editTextTextPassword"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="@+id/etSignUpPassword"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/editTextTextPassword"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+            app:layout_constraintStart_toStartOf="@+id/etSignUpPassword"
+            app:layout_constraintTop_toBottomOf="@+id/etSignUpPassword" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName"
+            android:id="@+id/etSignUpName"
             android:layout_width="312dp"
             android:layout_height="45dp"
             android:layout_marginTop="52dp"
             android:autofillHints=""
             android:background="@drawable/input_field"
             android:ems="10"
-
             android:hint="@string/hintName"
-
             android:inputType="textPersonName"
             android:textColor="@color/royalBlue"
             android:textColorHint="#7A7777"
@@ -97,11 +91,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.494"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/tvSignInWellcome"
             tools:ignore="MissingConstraints" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/tvSignInWellcome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="48dp"
@@ -123,12 +117,12 @@
             android:text="@string/tvOr"
             android:textColor="@color/royalBlue"
             android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="@+id/button"
-            app:layout_constraintStart_toStartOf="@+id/button"
-            app:layout_constraintTop_toBottomOf="@+id/button" />
+            app:layout_constraintEnd_toEndOf="@+id/btnSignUp"
+            app:layout_constraintStart_toStartOf="@+id/btnSignUp"
+            app:layout_constraintTop_toBottomOf="@+id/btnSignUp" />
 
         <TextView
-            android:id="@+id/textView7"
+            android:id="@+id/tvSignIn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
