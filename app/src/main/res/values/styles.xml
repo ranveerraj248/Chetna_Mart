@@ -2,15 +2,15 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">#394a6d</item>
-        <item name="colorPrimaryDark">#3c9d9b</item>
+        <item name="colorPrimary">#040456</item>
+        <item name="colorPrimaryDark">#040456</item>
         <item name="colorAccent">#52de97</item>
     </style>
 
     <style name="SplashTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">#394a6d</item>
-        <item name="colorPrimaryDark">#3c9d9b</item>
+        <item name="colorPrimary">#040456</item>
+        <item name="colorPrimaryDark">#040456</item>
         <item name="colorAccent">#52de97</item>
         <item name="android:windowBackground">@drawable/splash_activity_background</item>
     </style>
