@@ -14,5 +14,5 @@
 
     <string name="hintConfirmPassword">Confirm Password</string>
     <string name="tvSignUp">Sign Up</string>
-    <string name="tvAlreadySignIn">Already have an acciunt?Sign In</string>
+    <string name="tvAlreadySignIn">Already have an account?Sign In</string>
 </resources>
