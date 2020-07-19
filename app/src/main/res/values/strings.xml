@@ -10,4 +10,9 @@
     <string name="hintPassword">Password</string>
     <string name="hintEmail">Email Id</string>
     <string name="btnCrossDescription">cross button</string>
+    <string name="hintName">Name</string>
+
+    <string name="hintConfirmPassword">Confirm Password</string>
+    <string name="tvSignUp">Sign Up</string>
+    <string name="tvAlreadySignIn">Already have an acciunt?Sign In</string>
 </resources>
