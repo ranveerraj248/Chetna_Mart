@@ -16,13 +16,14 @@
             android:id="@+id/btnSignUp"
             android:layout_width="122dp"
             android:layout_height="52dp"
-            android:layout_marginTop="36dp"
+            android:layout_marginTop="24dp"
             android:background="@drawable/btn_theme"
             android:fontFamily="@font/alike"
             android:text="@string/tvSignUp"
             android:textColor="@color/royalBlue"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="@+id/etSignUpConfirmPassword"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/etSignUpConfirmPassword"
             app:layout_constraintTop_toBottomOf="@+id/etSignUpConfirmPassword" />
 
@@ -98,13 +99,12 @@
             android:id="@+id/tvSignInWellcome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="48dp"
+            android:layout_marginTop="40dp"
             android:fontFamily="@font/aladin"
             android:text="@string/tvWelcome"
             android:textColor="@color/royalBlue"
             android:textSize="80sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -112,30 +112,31 @@
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
+            android:layout_marginTop="24dp"
             android:fontFamily="@font/basic"
             android:text="@string/tvOr"
             android:textColor="@color/royalBlue"
             android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="@+id/btnSignUp"
-            app:layout_constraintStart_toStartOf="@+id/btnSignUp"
-            app:layout_constraintTop_toBottomOf="@+id/btnSignUp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sign_up_progress" />
 
         <TextView
             android:id="@+id/tvSignIn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
+            android:layout_marginTop="16dp"
             android:layout_marginBottom="100dp"
+            android:fontFamily="@font/basic"
             android:text="@string/tvAlreadySignIn"
             android:textColor="@color/royalBlue"
-
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/textView6"
             app:layout_constraintStart_toStartOf="@+id/textView6"
             app:layout_constraintTop_toBottomOf="@+id/textView6"
-            app:layout_constraintVertical_bias="0.138" />
+            app:layout_constraintVertical_bias="0.0" />
 
         <ImageView
             android:id="@+id/btnSignUpCross"
@@ -147,6 +148,19 @@
             android:src="@drawable/ic_cross"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <ProgressBar
+            android:id="@+id/sign_up_progress"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="52dp"
+            android:layout_height="50dp"
+            android:scrollbarSize="5dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/btnSignUp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.503"
+            app:layout_constraintStart_toEndOf="@+id/btnSignUp"
+            app:layout_constraintTop_toTopOf="@+id/btnSignUp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
