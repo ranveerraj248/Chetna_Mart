@@ -10,15 +10,4 @@
     <string name="hintPassword">Password</string>
     <string name="hintEmail">Email Id</string>
     <string name="btnCrossDescription">cross button</string>
-    <string name="ptSignUpName">Name</string>
-    <string name="hintSignUpName">Name</string>
-    <string name="etSignUpEmail">Email Id</string>
-    <string name="hintSignUpEmail">Email Id</string>
-    <string name="etSignUpPassword">Password</string>
-    <string name="hintSignUpPassword">Password</string>
-    <string name="etSignUpConfirmPassword">Confirm Password</string>
-    <string name="hintSignUpConfirmPassword">Confirm Password</string>
-    <string name="btnSignUp">Sign Up</string>
-    <string name="tvSignUpOr">Or</string>
-    <string name="tvAlreadySignIn">Already have an account?Sign In</string>
 </resources>
