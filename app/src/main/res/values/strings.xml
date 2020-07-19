@@ -2,4 +2,12 @@
     <string name="app_name">Chetna Mart</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tvWelcome">"Welcome! "</string>
+    <string name="btnSignIn">Sign In</string>
+    <string name="tvForgotPassword">Forgot Password?</string>
+    <string name="tvOr">Or</string>
+    <string name="tvNewSignUp">Don\'t have an account? Sign Up</string>
+    <string name="hintPassword">Password</string>
+    <string name="hintEmail">Email Id</string>
+    <string name="btnCrossDescription">cross button</string>
 </resources>

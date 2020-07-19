@@ -15,6 +15,13 @@
         <item name="android:windowBackground">@drawable/splash_activity_background</item>
     </style>
 
+    <style name="RegisterTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#040456</item>
+        <item name="colorPrimaryDark">#3c9d9b</item>
+        <item name="colorAccent">#040456</item>
+        <item name="android:windowBackground">@drawable/login_activity_background</item>
+    </style>
 
 
 </resources>
