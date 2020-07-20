@@ -61,7 +61,6 @@ public class SignUpFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_sign_up, container, false);
-
         alreadyHaveAnAccount = view.findViewById(R.id.tvSignIn);
 
         parentFrameLayout = getActivity().findViewById(R.id.register_framelayout);
@@ -70,10 +69,12 @@ public class SignUpFragment extends Fragment {
         password = view.findViewById(R.id.etSignUpPassword);
         confirmPassword = view.findViewById(R.id.etSignUpConfirmPassword);
 
-        //closeBtn = view.findViewById(R.id.btnSignUpCross);
+
         signUpBtn = view.findViewById(R.id.btnSignUp);
 
         progressBar = view.findViewById(R.id.sign_up_progress);
+
+       // closeBtn = view.findViewById(R.id.btnSignUpCross);
 
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
@@ -90,6 +91,8 @@ public class SignUpFragment extends Fragment {
                 setFragment(new SignInFragment());
             }
         });
+
+
 
         email.addTextChangedListener(new TextWatcher() {
             @Override
@@ -193,28 +196,28 @@ public class SignUpFragment extends Fragment {
                 if (!TextUtils.isEmpty(password.getText()) && password.length() >= 8){
                     if (!TextUtils.isEmpty(confirmPassword.getText())){
                         signUpBtn.setEnabled(true);
-                        signUpBtn.setTextColor(Color.rgb(65,105,225));
+                        signUpBtn.setTextColor(getResources().getColor(R.color.royalBlue));
                     }else {
                         signUpBtn.setEnabled(false);
-                        signUpBtn.setTextColor(Color.argb(50, 152, 152, 213));
+                        signUpBtn.setTextColor(getResources().getColor(R.color.disabledBtn));
                     }
                 }else{
                     signUpBtn.setEnabled(false);
-                    signUpBtn.setTextColor(Color.argb(50,152,152,213));
+                    signUpBtn.setTextColor(getResources().getColor(R.color.disabledBtn));
                 }
             }else{
                 signUpBtn.setEnabled(false);
-                signUpBtn.setTextColor(Color.argb(50,152,152,213));
+                signUpBtn.setTextColor(getResources().getColor(R.color.disabledBtn));
             }
         }else{
             signUpBtn.setEnabled(false);
-            signUpBtn.setTextColor(Color.argb(50,152,152,213));
+            signUpBtn.setTextColor(getResources().getColor(R.color.disabledBtn));
         }
     }
     private void checkEmailAndPassword() {
 
-        //Drawable customErrorIcon = getResources().getDrawable(R.mipmap.error_icon);
-        //customErrorIcon.setBounds(0,0,customErrorIcon.getIntrinsicWidth(),customErrorIcon.getIntrinsicHeight());
+        Drawable customErrorIcon = getResources().getDrawable(R.drawable.ic_error);
+        customErrorIcon.setBounds(0,0,customErrorIcon.getIntrinsicWidth(),customErrorIcon.getIntrinsicHeight());
 
 
         if (email.getText().toString().matches(emailPattern)){
@@ -239,33 +242,36 @@ public class SignUpFragment extends Fragment {
                                             @Override
                                             public void onComplete(@NonNull Task<DocumentReference> task) {
                                                 if (task.isSuccessful()){
-
+                                                    mainIntent();
                                                 }else{
                                                     progressBar.setVisibility(View.INVISIBLE);
                                                     signUpBtn.setEnabled(true);
-                                                    signUpBtn.setTextColor(Color.rgb(65,105,225));
+                                                    signUpBtn.setTextColor(getResources().getColor(R.color.royalBlue));
                                                     String error = task.getException().getMessage();
                                                     Toast.makeText(getActivity(), error, Toast.LENGTH_SHORT).show();
                                                 }
                                             }
                                         });
-                                Intent mainIntent = new Intent(getActivity(),MainActivity.class);
-                                startActivity(mainIntent);
-                                getActivity().finish();
+
                             }else{
                                 progressBar.setVisibility(View.INVISIBLE);
                                 signUpBtn.setEnabled(true);
-                                signUpBtn.setTextColor(Color.rgb(65,105,225));
+                                signUpBtn.setTextColor(getResources().getColor(R.color.disabledBtn));
                                 String error = task.getException().getMessage();
                                 Toast.makeText(getActivity(), error, Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
             }else{
-                confirmPassword.setError("Password doesn't matched!");   //REPLACE confirmPassword.setError("Password doesn't matched!",customErrorTcon);
+                confirmPassword.setError("Password doesn't matched!",customErrorIcon);
             }
         }else{
-            email.setError("Invalid Email!");  // REPLACE  email.setError("Invalid Email!",customErrorTcon);      AND REMOVE COMMENT // FROM LINE NO 216,217
+            email.setError("Invalid Email!",customErrorIcon);
         }
+    }
+    private void mainIntent(){
+        Intent mainIntent = new Intent(getActivity(),MainActivity.class);
+        startActivity(mainIntent);
+        getActivity().finish();
     }
 }

@@ -19,6 +19,7 @@
             android:layout_marginTop="24dp"
             android:background="@drawable/btn_theme"
             android:fontFamily="@font/alike"
+            android:enabled="false"
             android:text="@string/tvSignUp"
             android:textColor="@color/disabledBtn"
             android:textSize="24sp"
