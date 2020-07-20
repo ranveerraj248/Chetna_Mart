@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.chetnamart">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:fullBackupContent="true"
@@ -10,8 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RegisterActivity"
-            android:theme="@style/RegisterTheme"></activity>
+        <activity android:name=".MainActivity"></activity>
+        <activity
+            android:name=".RegisterActivity"
+            android:theme="@style/RegisterTheme" />
         <activity
             android:name=".SplashActivity"
             android:theme="@style/SplashTheme">

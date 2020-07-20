@@ -20,7 +20,7 @@
             android:background="@drawable/btn_theme"
             android:fontFamily="@font/alike"
             android:text="@string/tvSignUp"
-            android:textColor="@color/royalBlue"
+            android:textColor="@color/disabledBtn"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="@+id/etSignUpConfirmPassword"
             app:layout_constraintHorizontal_bias="0.0"
@@ -158,9 +158,10 @@
             android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="@+id/btnSignUp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.503"
+            app:layout_constraintHorizontal_bias="0.734"
             app:layout_constraintStart_toEndOf="@+id/btnSignUp"
-            app:layout_constraintTop_toTopOf="@+id/btnSignUp" />
+            app:layout_constraintTop_toTopOf="@+id/btnSignUp"
+            app:layout_constraintVertical_bias="0.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

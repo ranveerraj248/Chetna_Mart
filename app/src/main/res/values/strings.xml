@@ -7,7 +7,7 @@
     <string name="tvForgotPassword">Forgot Password?</string>
     <string name="tvOr">Or</string>
     <string name="tvNewSignUp">Don\'t have an account? Sign Up</string>
-    <string name="hintPassword">Password</string>
+    <string name="hintPassword">Password (at least 8 char)</string>
     <string name="hintEmail">Email Id</string>
     <string name="btnCrossDescription">cross button</string>
     <string name="hintName">Name</string>

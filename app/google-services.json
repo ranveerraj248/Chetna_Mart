@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "463812561852",
+    "firebase_url": "https://chetna-mart.firebaseio.com",
+    "project_id": "chetna-mart",
+    "storage_bucket": "chetna-mart.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:463812561852:android:cf80047c71af0fb13239b9",
+        "android_client_info": {
+          "package_name": "com.example.chetnamart"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "463812561852-2i6faahc7ug3vcnkjdussg29jrntgf3q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzdgU6NZJXFO4DJA4SdwD7NNuUV8HdRuM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "463812561852-2i6faahc7ug3vcnkjdussg29jrntgf3q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -5,4 +5,5 @@
     <color name="colorAccent">#5FCF63</color>
     <color name="royalBlue">#040456</color>
     <color name="input">#A0EFBF</color>
+    <color name="disabledBtn">#9898D5</color>
 </resources>
