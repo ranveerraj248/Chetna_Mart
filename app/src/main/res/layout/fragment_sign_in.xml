@@ -22,6 +22,7 @@
             android:background="@drawable/btn_theme"
             android:fontFamily="@font/alike"
             android:text="@string/btnSignIn"
+            android:enabled="false"
             android:textColor="@color/disabledBtn"
             android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/textView3"
