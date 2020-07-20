@@ -27,6 +27,11 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class SignUpFragment extends Fragment {
 
@@ -46,7 +51,7 @@ public class SignUpFragment extends Fragment {
     private Button signUpBtn;
 
     private ProgressBar progressBar;
-
+    private FirebaseFirestore firebaseFirestore;
     private FirebaseAuth firebaseAuth;
     private String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+.[a-z]+";
 
@@ -71,6 +76,7 @@ public class SignUpFragment extends Fragment {
         progressBar = view.findViewById(R.id.sign_up_progress);
 
         firebaseAuth = FirebaseAuth.getInstance();
+        firebaseFirestore = FirebaseFirestore.getInstance();
 
         return view;
     }
@@ -207,8 +213,8 @@ public class SignUpFragment extends Fragment {
     }
     private void checkEmailAndPassword() {
 
-        //Drawable customErrorTcon = getResources().getDrawable(R.mipmap.error_icon);
-        //customErrorTcon.setBounds(0,0,customErrorTcon.getIntrinsicWidth(),customErrorTcon.getIntrinsicHeight());
+        //Drawable customErrorIcon = getResources().getDrawable(R.mipmap.error_icon);
+        //customErrorIcon.setBounds(0,0,customErrorIcon.getIntrinsicWidth(),customErrorIcon.getIntrinsicHeight());
 
 
         if (email.getText().toString().matches(emailPattern)){
@@ -223,6 +229,26 @@ public class SignUpFragment extends Fragment {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
+
+                                Map<Object,String> userdata = new HashMap<>();
+                                userdata.put("fullname",fullName.getText().toString());
+
+                                firebaseFirestore.collection("USERS")
+                                        .add(userdata)
+                                        .addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<DocumentReference> task) {
+                                                if (task.isSuccessful()){
+
+                                                }else{
+                                                    progressBar.setVisibility(View.INVISIBLE);
+                                                    signUpBtn.setEnabled(true);
+                                                    signUpBtn.setTextColor(Color.rgb(65,105,225));
+                                                    String error = task.getException().getMessage();
+                                                    Toast.makeText(getActivity(), error, Toast.LENGTH_SHORT).show();
+                                                }
+                                            }
+                                        });
                                 Intent mainIntent = new Intent(getActivity(),MainActivity.class);
                                 startActivity(mainIntent);
                                 getActivity().finish();
@@ -236,10 +262,10 @@ public class SignUpFragment extends Fragment {
                         }
                     });
             }else{
-                confirmPassword.setError("Password doesn't matched!");
+                confirmPassword.setError("Password doesn't matched!");   //REPLACE confirmPassword.setError("Password doesn't matched!",customErrorTcon);
             }
         }else{
-            email.setError("Invalid Email!");
+            email.setError("Invalid Email!");  // REPLACE  email.setError("Invalid Email!",customErrorTcon);      AND REMOVE COMMENT // FROM LINE NO 216,217
         }
     }
 }

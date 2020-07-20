@@ -10,8 +10,13 @@ import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.TextView;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 
 public class SignInFragment extends Fragment {
@@ -23,6 +28,14 @@ public class SignInFragment extends Fragment {
     private TextView dontHaveAnAccount;
     private FrameLayout parentFragmentLayout;
 
+    private EditText email;
+    private EditText password;
+
+    private ImageButton closeBtn;
+    private Button signInBtn;
+
+    private FirebaseAuth firebaseAuth;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -30,6 +43,15 @@ public class SignInFragment extends Fragment {
         View view =  inflater.inflate(R.layout.fragment_sign_in, container, false);
         dontHaveAnAccount = view.findViewById(R.id.tvSignUp);
         parentFragmentLayout = getActivity().findViewById(R.id.register_framelayout);
+
+        email = view.findViewById(R.id.etSignInEmail);
+        password = view.findViewById(R.id.etSignInPassword);
+
+        closeBtn = view.findViewById(R.id.btnSignInCross);
+        signInBtn = view.findViewById(R.id.btnSignIn);
+
+        firebaseAuth = FirebaseAuth.getInstance();
+
         return view;
     }
 
