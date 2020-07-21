@@ -3,18 +3,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <group android:checkableBehavior="single">
+    <group>
         <item
-            android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="@string/menu_home" />
+            android:id="@+id/nav_my_orders"
+            android:icon="@drawable/ic_my_orders_icon"
+            android:title="@string/menu_My_Orders" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
+            android:id="@+id/nav_my_rewards"
+            android:icon="@drawable/ic_my_rewards_icon"
+            android:title="@string/menu_My_Rewards" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
+            android:id="@+id/nav_my_cart"
+            android:icon="@drawable/ic_cart_icon"
+            android:title="@string/menu_My_Cart" />
+        <item
+            android:id="@+id/nav_my_wishlist"
+            android:icon="@drawable/ic_my_wishlist_icon"
+            android:title="@string/menu_My_Wishlist" />
+        <item
+            android:id="@+id/nav_my_account"
+            android:icon="@drawable/ic_my_account_icon"
+            android:title="@string/menu_My_Account" />
+
     </group>
 </menu>

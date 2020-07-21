@@ -35,4 +35,13 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+    <string name="tv_Not_Signed_In">Not Signed In</string>
+    <string name="tv_Email_Address">Email Address</string>
+
+    <string name="menu_My_Orders">My Orders</string>
+    <string name="menu_My_Rewards">My Rewards</string>
+    <string name="menu_My_Wishlist">My Wishlist</string>
+    <string name="menu_My_Cart">My Carts</string>
+    <string name="menu_My_Account">My Account</string>
+
 </resources>
