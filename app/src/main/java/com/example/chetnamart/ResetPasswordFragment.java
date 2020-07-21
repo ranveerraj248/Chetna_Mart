@@ -10,12 +10,18 @@ import androidx.fragment.app.FragmentTransaction;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.transition.TransitionManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.Animation;
+import android.view.animation.ScaleAnimation;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,6 +48,11 @@ public class ResetPasswordFragment extends Fragment {
 
     private FrameLayout parentFrameLayout;
 
+    private ViewGroup emailIconContainer;
+    private ImageView emailIcon;
+    private TextView emailIconText;
+    private ProgressBar progressBar;
+
     private FirebaseAuth firebaseAuth;
 
 
@@ -56,6 +67,11 @@ public class ResetPasswordFragment extends Fragment {
         registeredEmail = view.findViewById(R.id.etProvideEmail);
         btnResetPassword = view.findViewById(R.id.btnResetPassword);
         goBack = view.findViewById(R.id.tvGoBack);
+
+        emailIconContainer = view.findViewById(R.id.forgot_password_imageIcon_container);
+        emailIcon = view.findViewById(R.id.forgot_password_mail);
+        emailIconText = view.findViewById(R.id.tv_recovery_mail);
+        progressBar = view.findViewById(R.id.forgot_password_progessBar);
 
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -88,17 +104,58 @@ public class ResetPasswordFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
+                TransitionManager.beginDelayedTransition(emailIconContainer);
+                emailIconText.setVisibility(View.GONE);
+
+                TransitionManager.beginDelayedTransition(emailIconContainer);
+                emailIcon.setVisibility(View.VISIBLE);
+                progressBar.setVisibility(View.VISIBLE);
+
                 btnResetPassword.setEnabled(false);
                 btnResetPassword.setTextColor(getResources().getColor(R.color.disabledBtn));
+
                 firebaseAuth.sendPasswordResetEmail(registeredEmail.getText().toString())
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 if(task.isSuccessful()){
-                                    Toast.makeText(getActivity(), "email sent successfully!", Toast.LENGTH_LONG).show();
+
+                                    ScaleAnimation scaleAnimation = new ScaleAnimation(1,0,1,0,emailIcon.getWidth()/2,emailIcon.getHeight()/2);
+                                    scaleAnimation.setDuration(100);
+                                    scaleAnimation.setInterpolator(new AccelerateInterpolator());
+                                    scaleAnimation.setRepeatMode(Animation.REVERSE);
+                                    scaleAnimation.setRepeatCount(1);
+
+                                    scaleAnimation.setAnimationListener(new Animation.AnimationListener() {
+                                        @Override
+                                        public void onAnimationStart(Animation animation) {
+
+                                        }
+
+                                        @Override
+                                        public void onAnimationEnd(Animation animation) {
+                                            emailIconText.setText(getResources().getString(R.string.recoveryEmail));
+                                            emailIconText.setTextColor(getResources().getColor(R.color.green));
+
+                                            TransitionManager.beginDelayedTransition(emailIconContainer);
+                                            emailIconText.setVisibility(View.VISIBLE);
+                                        }
+
+                                        @Override
+                                        public void onAnimationRepeat(Animation animation) {
+                                            emailIcon.setImageResource(R.drawable.ic_baseline_mail_outline_24);
+                                        }
+                                    });
+                                    emailIcon.startAnimation(scaleAnimation);
+                                    progressBar.setVisibility(View.INVISIBLE);
                                 }else {
                                     String error = task.getException().getMessage();
-                                    Toast.makeText(getActivity(), "error", Toast.LENGTH_SHORT).show();
+                                    progressBar.setVisibility(View.INVISIBLE);
+
+                                    emailIconText.setText(error);
+                                    emailIconText.setTextColor(getResources().getColor(R.color.red));
+                                    TransitionManager.beginDelayedTransition(emailIconContainer);
+                                    emailIconText.setVisibility(View.VISIBLE);
                                 }
                                 btnResetPassword.setEnabled(true);
                                 btnResetPassword.setTextColor(getResources().getColor(R.color.royalBlue));
@@ -111,7 +168,7 @@ public class ResetPasswordFragment extends Fragment {
         goBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setFragment(new SignUpFragment());
+                setFragment(new SignInFragment());
             }
         });
 
