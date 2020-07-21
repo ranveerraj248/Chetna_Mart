@@ -15,4 +15,24 @@
     <string name="hintConfirmPassword">Confirm Password</string>
     <string name="tvSignUp">Sign Up</string>
     <string name="tvAlreadySignIn">Already have an account?Sign In</string>
+    <string name="forgotPassword">Forgot Password</string>
+    <string name="dontWorry">Don\'t Worry, we just need your registered email address and its done</string>
+    <string name="provideEmail">Provide your Registered Email Here</string>
+    <string name="resetPassword">Reset Password</string>
+    <string name="checkInbox">Check your inbox after clicking the button above.</string>
+    <string name="goBack"><![CDATA[< < Go Back]]></string>
+    <string name="forgotPasswordImage">Image Loading</string>
+    <string name="mail">mail image</string>
+    <string name="recoveryEmail">Recovery email sent successfully! Cheak your inbox.</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
 </resources>
