@@ -16,6 +16,9 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.widget.CompositePageTransformer;
+import androidx.viewpager2.widget.MarginPageTransformer;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.chetnamart.CategoryAdapter;
 import com.example.chetnamart.CategoryModel;
@@ -39,12 +42,12 @@ public class HomeFragment extends Fragment {
     private CategoryAdapter categoryAdapter;
 
     ////////// Banner Slider
-    private ViewPager bannerSliderViewPager;
+    private ViewPager2 bannerSliderViewPager;
     private List<SliderModel> sliderModelList;
     private int currentPage = 2;
     private Timer timer;
-    final private long DELAY_TIME = 3000;
-    final private long PERIOD_TIME = 3000;
+    final private long DELAY_TIME = 1500;
+    final private long PERIOD_TIME = 1500;
     /////////Banner Slider
 
     public View onCreateView(LayoutInflater inflater,
@@ -77,42 +80,54 @@ public class HomeFragment extends Fragment {
 
         ////////// Banner Slider
         bannerSliderViewPager = view.findViewById(R.id.vpBannerSlider);
-        sliderModelList = new ArrayList<SliderModel>();
+        sliderModelList = new ArrayList<>();
 
-        sliderModelList.add(new SliderModel(R.drawable.app_icon));
-        sliderModelList.add(new SliderModel(R.drawable.ic_menu_camera));
+        sliderModelList.add(new SliderModel(R.drawable.banner_3));
+        sliderModelList.add(new SliderModel(R.drawable.banner_4));
 
-        sliderModelList.add(new SliderModel(R.drawable.logo));
         sliderModelList.add(new SliderModel(R.drawable.items_banner));
-        sliderModelList.add(new SliderModel(R.drawable.app_icon));
-        sliderModelList.add(new SliderModel(R.drawable.ic_menu_camera));
+        sliderModelList.add(new SliderModel(R.drawable.banner_2));
+        sliderModelList.add(new SliderModel(R.drawable.banner_3));
+        sliderModelList.add(new SliderModel(R.drawable.banner_4));
 
-        sliderModelList.add(new SliderModel(R.drawable.logo));
         sliderModelList.add(new SliderModel(R.drawable.items_banner));
+        sliderModelList.add(new SliderModel(R.drawable.banner_2));
 
-        SliderAdapter sliderAdapter = new SliderAdapter(sliderModelList);
-        bannerSliderViewPager.setAdapter(sliderAdapter);
+        //SliderAdapter sliderAdapter = new SliderAdapter(sliderModelList);
+        bannerSliderViewPager.setAdapter(new SliderAdapter(sliderModelList,bannerSliderViewPager));
         bannerSliderViewPager.setClipToPadding(false);
-        bannerSliderViewPager.setPageMargin(20);
+        bannerSliderViewPager.setClipChildren(false);
+        bannerSliderViewPager.setOffscreenPageLimit(3);
+        bannerSliderViewPager.getChildAt(0).setOverScrollMode(RecyclerView.OVER_SCROLL_NEVER);
 
-        ViewPager.OnPageChangeListener onPageChangeListener = new ViewPager.OnPageChangeListener() {
+        CompositePageTransformer compositePageTransformer = new CompositePageTransformer();
+        compositePageTransformer.addTransformer(new MarginPageTransformer(40));
+        compositePageTransformer.addTransformer(new ViewPager2.PageTransformer() {
             @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+            public void transformPage(@NonNull View page, float position) {
+                float r = 1 - Math.abs(position);
+                page.setScaleY(0.85f + r * 0.15f);
             }
+        });
 
+        bannerSliderViewPager.setPageTransformer(compositePageTransformer);
+
+        bannerSliderViewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
             public void onPageSelected(int position) {
+                super.onPageSelected(position);
                 currentPage = position;
             }
 
             @Override
             public void onPageScrollStateChanged(int state) {
-                if(state==ViewPager.SCROLL_STATE_IDLE){
+                super.onPageScrollStateChanged(state);
+                if(state ==ViewPager2.SCROLL_STATE_IDLE){
                     pageLooper();
                 }
             }
-        };
-        bannerSliderViewPager.addOnPageChangeListener(onPageChangeListener);
+        });
+
 
         startBannerSlideShow();
         bannerSliderViewPager.setOnTouchListener(new View.OnTouchListener() {
