@@ -7,7 +7,7 @@
         <item
             android:id="@+id/nav_chetna_mart"
             android:icon="@drawable/ic_chetna_mart"
-            android:title="@string/menu_My_Orders" />
+            android:title="@string/menu_Chetna_Mart" />
         <item
             android:id="@+id/nav_my_orders"
             android:icon="@drawable/ic_my_orders_icon"
@@ -32,5 +32,5 @@
     <item
         android:id="@+id/nav_sign_out"
         android:icon="@drawable/ic_sign_out_icon"
-        android:title="@string/menu_My_Orders" />
+        android:title="@string/menu_Sign_Out" />
 </menu>

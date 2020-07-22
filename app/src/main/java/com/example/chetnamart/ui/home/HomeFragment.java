@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.GridView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -22,6 +24,7 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.chetnamart.CategoryAdapter;
 import com.example.chetnamart.CategoryModel;
+import com.example.chetnamart.GridProductLayoutAdapter;
 import com.example.chetnamart.R;
 import com.example.chetnamart.SliderAdapter;
 import com.example.chetnamart.SliderModel;
@@ -41,14 +44,6 @@ public class HomeFragment extends Fragment {
     private RecyclerView categoryRecyclerView;
     private CategoryAdapter categoryAdapter;
 
-    ////////// Banner Slider
-    private ViewPager2 bannerSliderViewPager;
-    private List<SliderModel> sliderModelList;
-    private int currentPage = 2;
-    private Timer timer;
-    final private long DELAY_TIME = 1500;
-    final private long PERIOD_TIME = 1500;
-    /////////Banner Slider
 
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -65,22 +60,14 @@ public class HomeFragment extends Fragment {
         categoryModelList.add(new CategoryModel("link","Electronics"));
         categoryModelList.add(new CategoryModel("link","Appliences"));
         categoryModelList.add(new CategoryModel("link","Corona"));
-        categoryModelList.add(new CategoryModel("link","China"));
-        categoryModelList.add(new CategoryModel("link","Maderchod"));
-        categoryModelList.add(new CategoryModel("link","Hai"));
-        categoryModelList.add(new CategoryModel("link","Pakisthan"));
-        categoryModelList.add(new CategoryModel("link","Ki"));
-        categoryModelList.add(new CategoryModel("link","Maa"));
-        categoryModelList.add(new CategoryModel("link","Ka"));
-        categoryModelList.add(new CategoryModel("link","Bhosra"));
 
         categoryAdapter = new CategoryAdapter(categoryModelList);
         categoryRecyclerView.setAdapter(categoryAdapter);
         categoryAdapter.notifyDataSetChanged();
 
         ////////// Banner Slider
-        bannerSliderViewPager = view.findViewById(R.id.vpBannerSlider);
-        sliderModelList = new ArrayList<>();
+
+        List<SliderModel> sliderModelList = new ArrayList<>();
 
         sliderModelList.add(new SliderModel(R.drawable.banner_3));
         sliderModelList.add(new SliderModel(R.drawable.banner_4));
@@ -93,12 +80,7 @@ public class HomeFragment extends Fragment {
         sliderModelList.add(new SliderModel(R.drawable.items_banner));
         sliderModelList.add(new SliderModel(R.drawable.banner_2));
 
-        //SliderAdapter sliderAdapter = new SliderAdapter(sliderModelList);
-        bannerSliderViewPager.setAdapter(new SliderAdapter(sliderModelList,bannerSliderViewPager));
-        bannerSliderViewPager.setClipToPadding(false);
-        bannerSliderViewPager.setClipChildren(false);
-        bannerSliderViewPager.setOffscreenPageLimit(3);
-        bannerSliderViewPager.getChildAt(0).setOverScrollMode(RecyclerView.OVER_SCROLL_NEVER);
+
 
         CompositePageTransformer compositePageTransformer = new CompositePageTransformer();
         compositePageTransformer.addTransformer(new MarginPageTransformer(40));
@@ -110,43 +92,25 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        bannerSliderViewPager.setPageTransformer(compositePageTransformer);
 
-        bannerSliderViewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
-            @Override
-            public void onPageSelected(int position) {
-                super.onPageSelected(position);
-                currentPage = position;
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-                super.onPageScrollStateChanged(state);
-                if(state ==ViewPager2.SCROLL_STATE_IDLE){
-                    pageLooper();
-                }
-            }
-        });
-
-
-        startBannerSlideShow();
-        bannerSliderViewPager.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                pageLooper();
-                stopBannerSlideShow();
-                if(motionEvent.getAction() == MotionEvent.ACTION_UP){
-                    startBannerSlideShow();
-                }
-                return false;
-            }
-        });
         ////////// Banner Slider
+
+        ////////  Grid Product layout
+
+        TextView gridLayoutTitle = view.findViewById(R.id.grid_product_layout_title);
+        Button gridlayoutViewAllBtn = view.findViewById(R.id.grid_product_viewall_btn);
+        GridView gridView = view.findViewById(R.id.grid_product_layout_gridview);
+
+        gridView.setAdapter(new GridProductLayoutAdapter(horizontalProductScrollModelList));
+
+        //////// Grid Product layout
 
         return view;
     }
 
     ////////// Banner Slider
+
+    /*
     private void pageLooper(){
         if(currentPage == sliderModelList.size()-2){
             currentPage = 2;
@@ -157,7 +121,8 @@ public class HomeFragment extends Fragment {
             bannerSliderViewPager.setCurrentItem(currentPage,false);
         }
     }
-
+    */
+    /*
     private void startBannerSlideShow(){
         final Handler handler = new Handler();
         final Runnable update = new Runnable() {
@@ -180,5 +145,6 @@ public class HomeFragment extends Fragment {
     private void stopBannerSlideShow(){
         timer.cancel();
     }
+    */
     ////////// Banner Slider
 }

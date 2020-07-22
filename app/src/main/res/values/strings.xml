@@ -44,5 +44,8 @@
     <string name="menu_My_Cart">My Cart</string>
     <string name="menu_My_Account">My Account</string>
     <string name="menu_Sign_Out">Sign Out</string>
+    <string name="menu_Chetna_Mart">Chetna Mart</string>
+    <string name="tv_title">Title</string>
+    <string name="btn_viewAll">View All</string>
 
 </resources>

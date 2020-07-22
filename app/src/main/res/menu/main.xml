@@ -16,9 +16,10 @@
         app:showAsAction="always" />
 
     <item
-        android:id="@+id/main_cart_icon"
-        android:orderInCategory="100"
-        android:icon="@drawable/ic_cart_icon"
-        android:title="cart"
-        app:showAsAction="always" />
+    android:id="@+id/main_cart_icon"
+    android:orderInCategory="100"
+    android:icon="@drawable/ic_cart_icon"
+    android:title="cart"
+    app:showAsAction="always" />
+
 </menu>
