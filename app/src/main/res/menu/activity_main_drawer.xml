@@ -3,7 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <group>
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_chetna_mart"
+            android:icon="@drawable/ic_chetna_mart"
+            android:title="@string/menu_My_Orders" />
         <item
             android:id="@+id/nav_my_orders"
             android:icon="@drawable/ic_my_orders_icon"
@@ -24,6 +28,9 @@
             android:id="@+id/nav_my_account"
             android:icon="@drawable/ic_my_account_icon"
             android:title="@string/menu_My_Account" />
-
     </group>
+    <item
+        android:id="@+id/nav_sign_out"
+        android:icon="@drawable/ic_sign_out_icon"
+        android:title="@string/menu_My_Orders" />
 </menu>

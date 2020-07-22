@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -14,10 +13,12 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
-import androidx.viewpager2.widget.ViewPager2;
 
+import com.example.chetnamart.CategoryAdapter;
+import com.example.chetnamart.CategoryModel;
 import com.example.chetnamart.R;
 import com.example.chetnamart.SliderAdapter;
 import com.example.chetnamart.SliderModel;
@@ -29,9 +30,11 @@ import java.util.TimerTask;
 
 public class HomeFragment extends Fragment {
 
-    public HomeFragment(){
-        //Required empty public constructor
+
+    public HomeFragment() {
+
     }
+
     private RecyclerView categoryRecyclerView;
     private CategoryAdapter categoryAdapter;
 
@@ -44,9 +47,33 @@ public class HomeFragment extends Fragment {
     final private long PERIOD_TIME = 3000;
     /////////Banner Slider
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
+    public View onCreateView(LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
+        View view = inflater.inflate(R.layout.fragment_home,container,false);
+
+        categoryRecyclerView = view.findViewById(R.id.category_recyclerview);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        categoryRecyclerView.setLayoutManager(layoutManager);
+
+        List<CategoryModel> categoryModelList = new ArrayList<CategoryModel>();
+        categoryModelList.add(new CategoryModel("link","Home"));
+        categoryModelList.add(new CategoryModel("link","Electronics"));
+        categoryModelList.add(new CategoryModel("link","Appliences"));
+        categoryModelList.add(new CategoryModel("link","Corona"));
+        categoryModelList.add(new CategoryModel("link","China"));
+        categoryModelList.add(new CategoryModel("link","Maderchod"));
+        categoryModelList.add(new CategoryModel("link","Hai"));
+        categoryModelList.add(new CategoryModel("link","Pakisthan"));
+        categoryModelList.add(new CategoryModel("link","Ki"));
+        categoryModelList.add(new CategoryModel("link","Maa"));
+        categoryModelList.add(new CategoryModel("link","Ka"));
+        categoryModelList.add(new CategoryModel("link","Bhosra"));
+
+        categoryAdapter = new CategoryAdapter(categoryModelList);
+        categoryRecyclerView.setAdapter(categoryAdapter);
+        categoryAdapter.notifyDataSetChanged();
 
         ////////// Banner Slider
         bannerSliderViewPager = view.findViewById(R.id.vpBannerSlider);
@@ -100,14 +127,16 @@ public class HomeFragment extends Fragment {
             }
         });
         ////////// Banner Slider
-        return root;
+
+        return view;
     }
+
     ////////// Banner Slider
     private void pageLooper(){
-      if(currentPage == sliderModelList.size()-2){
-          currentPage = 2;
-          bannerSliderViewPager.setCurrentItem(currentPage,false);
-      }
+        if(currentPage == sliderModelList.size()-2){
+            currentPage = 2;
+            bannerSliderViewPager.setCurrentItem(currentPage,false);
+        }
         if(currentPage == 1){
             currentPage = sliderModelList.size() -3;
             bannerSliderViewPager.setCurrentItem(currentPage,false);
@@ -122,7 +151,7 @@ public class HomeFragment extends Fragment {
                 if(currentPage >=sliderModelList.size()){
                     currentPage = 1;
                 }
-               bannerSliderViewPager.setCurrentItem(currentPage++,true);
+                bannerSliderViewPager.setCurrentItem(currentPage++,true);
             }
         };
         timer = new Timer();
