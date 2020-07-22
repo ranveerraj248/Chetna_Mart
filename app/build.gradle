@@ -37,7 +37,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:19.3.2'
     implementation 'com.google.firebase:firebase-firestore:21.5.0'
 
-    //implementation 'android'
+    //RoundedImageView
     implementation 'com.makeramen:roundedimageview:2.3.0'
 }
 apply plugin: 'com.google.gms.google-services'
