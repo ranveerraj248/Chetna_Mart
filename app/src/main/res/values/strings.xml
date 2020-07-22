@@ -41,7 +41,8 @@
     <string name="menu_My_Orders">My Orders</string>
     <string name="menu_My_Rewards">My Rewards</string>
     <string name="menu_My_Wishlist">My Wishlist</string>
-    <string name="menu_My_Cart">My Carts</string>
+    <string name="menu_My_Cart">My Cart</string>
     <string name="menu_My_Account">My Account</string>
+    <string name="menu_Sign_Out">Sign Out</string>
 
 </resources>

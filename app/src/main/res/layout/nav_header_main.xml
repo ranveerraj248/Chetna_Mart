@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="@dimen/nav_header_height"
     android:background="@color/royalBlue"
-    android:gravity="bottom"
     android:orientation="vertical"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
@@ -19,21 +19,38 @@
         android:layout_height="wrap_content"
         android:contentDescription="@string/nav_header_desc"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
+        app:layout_constraintBottom_toTopOf="@+id/main_fullname"
+        app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/ic_user_icon" />
 
     <TextView
         android:id="@+id/main_fullname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/basic"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
         android:text="@string/tv_Not_Signed_In"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#ffffff"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+        app:layout_constraintBottom_toTopOf="@+id/main_email"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/main_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/basic"
         android:text="@string/tv_Email_Address"
-        android:textColor="#80ffffff" />
-</LinearLayout>
+        android:textColor="#80ffffff"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/main_fullname"
+        app:layout_constraintEnd_toEndOf="@+id/main_profile_image"
+        app:srcCompat="@drawable/ic_plus_icon" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
