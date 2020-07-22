@@ -15,6 +15,10 @@ public class GridProductLayoutAdapter extends BaseAdapter {
 
     List<HorizontalProductScrollModel> horizontalProductScrollModelList;
 
+    public GridProductLayoutAdapter(List<HorizontalProductScrollModel> horizontalProductScrollModelList) {
+        this.horizontalProductScrollModelList = horizontalProductScrollModelList;
+    }
+
     @Override
     public int getCount() {
         return 4;
@@ -35,14 +39,14 @@ public class GridProductLayoutAdapter extends BaseAdapter {
         View view;
         if (convertView == null) {
             view = LayoutInflater.from(parent.getContext()).inflate(R.layout.horizontal_scroll_item_layout,null);
-            view.setElevation(0);
-            view.setBackgroundColor(Color.parseColor("#ffffff"));
+            view.setElevation(7);
+            //view.setBackgroundColor(Color.parseColor("#ffffff"));
             ImageView productImage = view.findViewById(R.id.h_s_product_image);
             TextView productTitle = view.findViewById(R.id.h_s_product_title);
             TextView productDescription = view.findViewById(R.id.h_s_product_description);
             TextView productPrice = view.findViewById(R.id.h_s_product_price);
 
-            productImage.setImageResource(horizontalProductScrollModelList.get(position).getProduceImage());
+            productImage.setImageResource(horizontalProductScrollModelList.get(position).getProductImage());
             productTitle.setText(horizontalProductScrollModelList.get(position).getProductTitle());
             productDescription.setText(horizontalProductScrollModelList.get(position).getProductDescription());
             productPrice.setText(horizontalProductScrollModelList.get(position).getProductPrice());
