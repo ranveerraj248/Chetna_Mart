@@ -44,5 +44,10 @@
     <string name="menu_My_Cart">My Cart</string>
     <string name="menu_My_Account">My Account</string>
     <string name="menu_Sign_Out">Sign Out</string>
+    <string name="strip_banner">Advertisement Banner</string>
+    <string name="deals">Deals of the Day</string>
+    <string name="viewAll">View All</string>
+    <string name="btn_viewAll">View All</string>
+    <string name="tv_title">Title</string>
 
 </resources>
