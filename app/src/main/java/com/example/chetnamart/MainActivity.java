@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity
 
         }else if (id == R.id.nav_my_rewards) {
 
-        }else if (id == R.id.nav_my_rewards) {
+        }else if (id == R.id.nav_my_cart) {
 
         }else if (id == R.id.nav_my_wishlist) {
 

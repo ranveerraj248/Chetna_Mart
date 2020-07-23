@@ -49,5 +49,8 @@
     <string name="viewAll">View All</string>
     <string name="btn_viewAll">View All</string>
     <string name="tv_title">Title</string>
+    <string name="menu_Chetna_Mart">Chetna Mart</string>
+    <string name="tv_product_title">Product Title</string>
+    <string name="tv_total_ratings">Total Ratings</string>
 
 </resources>

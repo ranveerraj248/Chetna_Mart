@@ -6,8 +6,12 @@
     <color name="royalBlue">#040456</color>
     <color name="input">#A0EFBF</color>
     <color name="disabledBtn">#9898D5</color>
+    <color name="redembackground">#FF5722</color>
     <color name="green">#00FF00</color>
+    <color name="ratinggreen">#117011</color>
     <color name="red">#FF0000</color>
     <color name="backgroundGreen">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="darkgreen">#0D4007</color>
     <color name="white">#FFFFFF</color>
 </resources>

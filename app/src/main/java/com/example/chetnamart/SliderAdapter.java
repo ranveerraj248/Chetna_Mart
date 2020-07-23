@@ -54,12 +54,11 @@ public class SliderAdapter  extends RecyclerView.Adapter<SliderAdapter.SliderVie
             super(itemView);
             imageView = itemView.findViewById(R.id.bannerSlide);
         }
-        void setImage(SliderModel sliderModel){
+        void setImage(SliderModel sliderModel) {
             //image from the internet code here.
 
             imageView.setImageResource(sliderModel.getBanner());
         }
-
 
     }
 
