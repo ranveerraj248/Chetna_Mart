@@ -46,7 +46,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
         ProductImagesAdapter productImagesAdapter = new ProductImagesAdapter(productImages);
         productImagesViewPager.setAdapter(productImagesAdapter);
 
-        viewpagerIndicator.setupWithViewPager(productImagesViewPager,true);
+        //viewpagerIndicator.setupWithViewPager(productImagesViewPager,true);
 
         addToWishlistBtn.setOnClickListener(new View.OnClickListener() {
             @Override
