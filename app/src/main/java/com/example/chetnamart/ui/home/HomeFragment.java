@@ -178,6 +178,7 @@ public class HomeFragment extends Fragment {
         horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.horlicks,"Horlicks","Classic Malt","Rs. 225"));
         horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.horlicks,"Horlicks","Classic Malt","Rs. 225"));
         horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.horlicks,"Horlicks","Classic Malt","Rs. 225"));
+        horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.horlicks,"Horlicks","Classic Malt","Rs. 225"));
 
 
         HorizontalProductScrollAdapter horizontalProductScrollAdapter = new HorizontalProductScrollAdapter(horizontalProductScrollModelList);
@@ -200,6 +201,31 @@ public class HomeFragment extends Fragment {
         gridView.setAdapter(new GridProductLayoutAdapter(horizontalProductScrollModelList));
 
         //////// Grid Product layout
+
+
+        ///////////////////////////////////////////////////////
+
+        RecyclerView testing = view.findViewById(R.id.testing);
+        LinearLayoutManager testingLayoutManager = new LinearLayoutManager(getContext());
+        testingLayoutManager.setOrientation(RecyclerView.VERTICAL);
+        testing.setLayoutManager(testingLayoutManager);
+
+        List<HomePageModel> homePageModelList = new ArrayList<>();
+        homePageModelList.add(new HomePageModel(0,sliderModelList));
+        homePageModelList.add(new HomePageModel(1,R.drawable.strip_banner,"#000000"));
+        homePageModelList.add(new HomePageModel(2,"Deals of the Day",horizontalProductScrollModelList));
+        homePageModelList.add(new HomePageModel(3,"Trending Today",horizontalProductScrollModelList));
+        homePageModelList.add(new HomePageModel(1,R.drawable.strip_banner,"#000000"));
+        homePageModelList.add(new HomePageModel(3,"Trending Today",horizontalProductScrollModelList));
+        homePageModelList.add(new HomePageModel(2,"Deals of the Day",horizontalProductScrollModelList));
+        homePageModelList.add(new HomePageModel(0,sliderModelList));
+        homePageModelList.add(new HomePageModel(1,R.drawable.strip_banner,"#ff0000"));
+
+        HomePageAdapter adapter = new HomePageAdapter(homePageModelList);
+        testing.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+
+        /////////////////////////////////////////////////////////
 
         return view;
     }
